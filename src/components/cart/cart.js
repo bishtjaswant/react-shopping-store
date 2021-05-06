@@ -1,11 +1,18 @@
 import React, { Component } from 'react';
 import CartProdutDetail from './CartProdutDetail';
-
+import CheckOut from './CheckOut';
 class Cart extends Component {
    
+    constructor(props) {
+        super(props);
+        this.state={
+            checkOut:false
+        };
+    }
+    
    
     render() {
-        const {cartItems, removeFromCart} = this.props;
+        const {cartItems,createOrder , removeFromCart} = this.props;
         return (
             <>
             {
@@ -30,10 +37,15 @@ class Cart extends Component {
                                       }
                                   </div>
                                   <div className="proceed">
-                                      <button>proceed</button>
+                                      <button onClick={()=>this.setState({checkOut:!this.state.checkOut})} type="button">proceed</button>
                                   </div>
                               </div>
                           </div>
+
+                          {
+                              this.state.checkOut &&  <CheckOut  createOrder={createOrder}/>
+                          }
+                          
             
                   </div> 
 

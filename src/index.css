@@ -79,10 +79,10 @@ footer {
   gap: 1.7rem 1.2rem;
 }
 .product {
-  box-shadow: 0 0.5px 2.2px rgba(0, 0, 0, 0.008),
-    0 1.3px 5.3px rgba(0, 0, 0, 0.012), 0 2.4px 10px rgba(0, 0, 0, 0.015),
-    0 4.2px 17.9px rgba(0, 0, 0, 0.018), 0 7.9px 33.4px rgba(0, 0, 0, 0.022),
-    0 19px 80px rgba(0, 0, 0, 0.03);
+  border-radius: 0px;
+  background: linear-gradient(45deg, #e2e0e0, #ffffff);
+  box-shadow:  5px -5px 10px #d5d4d4,
+               -5px 5px 10px #ffffff;
 
   margin: 1.2rem 0;
   padding: 2rem 1rem;
@@ -229,4 +229,40 @@ footer {
     border: 0.13rem solid #c0c0c0;
     border-radius: 0.2rem;
     cursor: pointer;
+}
+
+
+/* //checkout-wrapper. */
+.checkout-wrapper{
+  display: flex; 
+    flex-wrap: wrap;
+  padding: 1rem;
+  border-radius: 0px;
+  background: linear-gradient(45deg, #e2e0e0, #ffffff);
+  box-shadow:  5px -5px 10px #d5d4d4,
+               -5px 5px 10px #ffffff;
+}
+
+.checkout-wrapper  button{
+  padding: 0.5rem;
+    text-transform: capitalize;
+    font-size: 1.2rem;
+    width: 11rem;
+    background: #ffc000;
+    border: 0.13rem solid #c0c0c0;
+    border-radius: 0.2rem;
+    cursor: pointer;
+    width: 100%;
+}
+
+.checkout-wrapper .group {
+  display: flex;
+    flex-direction: column;
+    padding: 1rem;
+}
+
+
+.checkout-wrapper  .group input{
+  padding: .9rem;
+    border: 0;
 }

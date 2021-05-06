@@ -10,7 +10,8 @@ export default function App() {
         products: data.products,
         size: "",
         sort: "",
-        cartItems: []
+        cartItems: localStorage.getItem("cartItems")
+        ? JSON.parse( localStorage.getItem("cartItems")  ) : [],
     });
 
     const addToCartHandler = (e, product) => {
@@ -28,7 +29,10 @@ export default function App() {
             cartItems.push({ ...product, count: 1 });
         }
 
-        setProducts({ ...products, cartItems })
+        setProducts({ ...products, cartItems });
+
+
+        localStorage.setItem("cartItems", JSON.stringify(cartItems));
 
     };
 
@@ -56,7 +60,12 @@ export default function App() {
     const removeFromCart=  (e,_id)  => {
         const cartItems=[...products.cartItems];
         setProducts({...products , cartItems: cartItems.filter( item => item._id != _id )    })
+        localStorage.removeItem("cartItems");
        
+    }
+
+    const createOrder = (order) => {
+        console.log('we receviced order by ', order);
     }
 
 
@@ -92,7 +101,7 @@ export default function App() {
                         <Product products={products} addToCartHandler={addToCartHandler} />
                     </div>
                     <div className="aside">
-                        <Cart removeFromCart={removeFromCart} cartItems={products.cartItems} />
+                        <Cart  createOrder={createOrder} removeFromCart={removeFromCart} cartItems={products.cartItems} />
                     </div>
                 </div>
             </main>
