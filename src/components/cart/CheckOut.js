@@ -14,6 +14,14 @@ export default function CheckOut(props) {
         let order={name,email,address};
           createOrder(order);
 
+
+
+
+        //   empty the form data affter subbmiting the form
+          setName("");
+          setEmail("");
+          setAddress("");
+
     }
 
 

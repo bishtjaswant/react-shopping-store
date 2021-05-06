@@ -164,6 +164,19 @@ footer {
 ;
 }
 
+.content .aside .count{
+  display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+
+    border-radius: 0px;
+    background: linear-gradient(45deg, #e2e0e0, #ffffff);
+    box-shadow: 5px -5px 10px #d5d4d4, -5px 5px 10px #ffffff;
+}
+.content .aside .count a{
+  color: #e23333!important;
+}
 .content .aside div{
   font-size: 1.5rem;
     text-transform: capitalize;

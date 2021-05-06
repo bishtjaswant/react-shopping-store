@@ -11,7 +11,7 @@ export default function App() {
         size: "",
         sort: "",
         cartItems: localStorage.getItem("cartItems")
-        ? JSON.parse( localStorage.getItem("cartItems")  ) : [],
+            ? JSON.parse(localStorage.getItem("cartItems")) : [],
     });
 
     const addToCartHandler = (e, product) => {
@@ -57,15 +57,34 @@ export default function App() {
     }
 
 
-    const removeFromCart=  (e,_id)  => {
-        const cartItems=[...products.cartItems];
-        setProducts({...products , cartItems: cartItems.filter( item => item._id != _id )    })
+    const removeFromCart = (e, _id) => {
+        const cartItems = [...products.cartItems];
+        setProducts({ ...products, cartItems: cartItems.filter(item => item._id != _id) })
         localStorage.removeItem("cartItems");
-       
+
     }
 
     const createOrder = (order) => {
         console.log('we receviced order by ', order);
+    }
+
+    const clearAll = (e) => {
+        //   it will clear out all the cart item; 
+
+        if (window. confirm('Do you want to remove  all items from cart')) {
+
+            localStorage.removeItem("cartItems");
+
+            setProducts(
+                {
+                    ...products,
+                    size: "",
+                    sort: "",
+                    cartItems: [],
+                }
+            );
+            return true;
+        } 
     }
 
 
@@ -101,7 +120,7 @@ export default function App() {
                         <Product products={products} addToCartHandler={addToCartHandler} />
                     </div>
                     <div className="aside">
-                        <Cart  createOrder={createOrder} removeFromCart={removeFromCart} cartItems={products.cartItems} />
+                        <Cart clearAll={clearAll} createOrder={createOrder} removeFromCart={removeFromCart} cartItems={products.cartItems} />
                     </div>
                 </div>
             </main>

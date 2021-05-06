@@ -12,16 +12,23 @@ class Cart extends Component {
     
    
     render() {
-        const {cartItems,createOrder , removeFromCart} = this.props;
+        const {cartItems,createOrder ,clearAll, removeFromCart} = this.props;
+       
+       
         return (
             <>
             {
                 cartItems.length==0
-                ?
+                ? 
                 <div> There is no item in cart </div>
+       
                 :
                   <div>
-                          <div> {cartItems.length} Items </div>
+                          <div  className='count'>
+                         <div> {cartItems.length} Items </div>
+                         <a onClick={()=>clearAll()} href="#">Clear all</a>
+  
+                          </div>
                           {
                               cartItems.map((item, index)=>(
                              <CartProdutDetail index={index+1} removeFromCart={removeFromCart}  cartItems={item}/>
