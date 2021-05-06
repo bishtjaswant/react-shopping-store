@@ -1,12 +1,13 @@
+
 export default function Product(props) {
-const { products:{products},size, sort } = props ;
+const { products:{products},size, sort, addToCartHandler } = props ;
 console.log(props);
 return (<>
     <div >
         <ul className="products">
             {
-                products.map((product)=>(
-                    <li key={product.id}>
+                products.map((product,index)=>(
+                    <li key={index}>
                         <div className="product">
                             <a href="">
                                 <img src={product.image} alt={product.title }/>
@@ -18,7 +19,7 @@ return (<>
                                 <div>
                                     {product.price}
                                 </div>
-                                <button className="btn">add to cart</button>
+                                <button onClick={(e)=> addToCartHandler(e,product) } className="btn">add to cart</button>
                             </div>
                         </div>
                     </li>
