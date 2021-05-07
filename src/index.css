@@ -77,6 +77,8 @@ footer {
   padding: 0;
   list-style-type: none;
   gap: 1.7rem 1.2rem;
+
+  cursor: pointer;
 }
 .product {
   border-radius: 0px;
@@ -278,4 +280,57 @@ footer {
 .checkout-wrapper  .group input{
   padding: .9rem;
     border: 0;
+}
+
+.modal-wrapper{
+  display: flex;
+    justify-content: space-around;
+     align-items: center;
+    width: 100%;
+    flex-wrap: wrap;
+
+
+
+
+}
+
+.modal-wrapper .modal-img{
+ 
+}
+.modal-wrapper  .modal-img img {
+  width: 25rem;
+    height: 25rem;
+    object-fit: contain;
+}
+
+.modal-wrapper .modal-desc p {
+  width: 67rem;
+    font-size: 1.99rem;
+    text-transform: capitalize;
+    text-align: justify;
+    margin: 0;
+}
+
+.modal-wrapper .modal-desc button {
+  padding: 0.5rem;
+    text-transform: capitalize;
+    font-size: 3.2rem;
+    width: 100%;
+    background: #ffc000;
+    border: none;
+    border-radius: 0.2rem;
+    cursor: pointer;
+    color: #f7f5f5;
+}
+.modal-wrapper .modal-desc h1{
+  text-transform: capitalize;
+    margin-bottom: 6px;
+    padding: 0;
+}
+
+.modal-wrapper .modal-desc h5 {
+  color: red;
+    font-size: 4rem;
+    margin: 0;
+    padding: 0;
 }
