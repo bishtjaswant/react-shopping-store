@@ -12,7 +12,7 @@
           "XL",
           "XXL"
         ],
-        "price": 29.9
+        "price": 2000
       },
       {
         "_id": "dress2",
@@ -25,7 +25,7 @@
           "M",
           "L"
         ],
-        "price": 18.9
+        "price": 3400
       },
       {
         "_id": "dress3",
@@ -38,7 +38,7 @@
           "M",
           "L"
         ],
-        "price": 14.9
+        "price": 5999
       },
       {
         "_id": "dress4",
@@ -48,7 +48,7 @@
         "availableSizes": [
           "XL"
         ],
-        "price": 25.9
+        "price": 2300
       },
       {
         "_id": "dress5",
@@ -61,7 +61,7 @@
           "L",
           "XL"
         ],
-        "price": 10.9
+        "price":999
       },
       {
         "_id": "dress6",
@@ -72,7 +72,7 @@
           "XL",
           "XXL"
         ],
-        "price": 49.9
+        "price":5400
       }
     ]
   }
