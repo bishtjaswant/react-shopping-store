@@ -2,7 +2,8 @@ const express = require('express')
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-const helmet = require('helmet')
+const helmet = require('helmet');
+const cors = require('cors');
 // all routes
 
 
@@ -42,6 +43,7 @@ app.use(helmet())
 app.use(morgan('dev'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(cors());
 
 
 // routes
