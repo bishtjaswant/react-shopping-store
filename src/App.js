@@ -16,6 +16,7 @@ export default function App() {
 
     const addToCartHandler = (e, product) => {
         const cartItems = [...products.cartItems];
+        console.log('carthandler :>> ', product);
         let alreadyInCart = false;
         cartItems.forEach((item) => {
             if (item._id == product._id) {
@@ -103,7 +104,7 @@ export default function App() {
     };
 
     return <>
-        <div className="container">
+        <div className="grid-container">
             <header>
                 <a href="/">react shopoing store</a>
             </header>
@@ -119,7 +120,7 @@ export default function App() {
                         />
                         <Product products={products} addToCartHandler={addToCartHandler} />
                     </div>
-                    <div className="aside">
+                    <div className="sidebar">
                         <Cart clearAll={clearAll} createOrder={createOrder} removeFromCart={removeFromCart} cartItems={products.cartItems} />
                     </div>
                 </div>

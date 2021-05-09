@@ -1,7 +1,99 @@
-import { useState } from "react";
+import React,{ useState } from "react";
 import { Fade } from 'react-awesome-reveal';
 import Modal from 'react-modal';
 
+
+export default class Products extends React.Component {
+    constructor(props) {
+      super(props);
+      this.state = {
+        product: null,
+      };
+    }
+    openModal = (product) => {
+      this.setState({ product });
+    };
+    closeModal = () => {
+      this.setState({ product: null });
+    };
+    render() {
+      const { product } = this.state;
+
+      console.log('props in product :>> ',this.props );
+      return (
+        <div>
+          <Fade bottom cascade>
+            <ul className="products">
+              {this.props.products.products.map((product) => (
+                <li key={product._id}>
+                  <div className="product">
+                    <a
+                      href={"#" + product._id}
+                      onClick={() => this.openModal(product)}
+                    >
+                      <img src={product.image} alt={product.title}></img>
+                      <p>{product.title}</p>
+                    </a>
+                    <div className="product-price">
+                      <div>{product.price}</div>
+                      <button
+                        onClick={(e) => this.props.addToCartHandler(e, product)}
+                        className="button primary"
+                      >
+                        Add To Cart
+                      </button>
+                    </div>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </Fade>
+          {product && (
+            <Modal isOpen={true} onRequestClose={this.closeModal}>
+              <Fade>
+                <button className="close-modal" onClick={this.closeModal}>
+                  x
+                </button>
+                <div className="product-details">
+                  <img src={product.image} alt={product.title}></img>
+                  <div className="product-details-description">
+                    <p>
+                      <strong>{product.title}</strong>
+                    </p>
+                    <p>{product.description}</p>
+                    <p>
+                      Avaiable Sizes:{" "}
+                      {product.availableSizes.map((x) => (
+                        <span>
+                          {" "}
+                          <button className="button">{x}</button>
+                        </span>
+                      ))}
+                    </p>
+                    <div className="product-price">
+                      <div>{product.price}</div>
+                      <button
+                        className="button primary"
+                        onClick={(e) => {
+                          this.props.addToCartHandler(e,product);
+                          this.closeModal();
+                        }}
+                      >
+                        Add To Cart
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </Fade>
+            </Modal>
+          )}
+        </div>
+      );
+    }
+  }
+
+
+/*
 const customStyles = {
     content: {
         top: '50%',
@@ -17,10 +109,8 @@ const customStyles = {
         'alignItems': 'center',
     }
 };
-
-//   Modal.setAppElement('#yourAppElement')
-
-
+*/
+/* 
 export default function Product(props) {
 
     const { products: { products }, size, sort, addToCartHandler } = props;
@@ -116,4 +206,4 @@ export default function Product(props) {
         </div>
 
     </>)
-};
+}; */

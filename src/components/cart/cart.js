@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import CartProdutDetail from './CartProdutDetail';
 import CheckOut from './CheckOut';
 import { Bounce, Fade } from 'react-awesome-reveal';
 
@@ -23,20 +22,41 @@ class Cart extends Component {
                 {
                     cartItems.length == 0
                         ?
-                        <div> There is no item in cart </div>
+                        <div className='cart cart-header'> There is no item in cart </div>
 
                         :
                         <div>
                             <div className='count'>
-                                <div> {cartItems.length} Items </div>
+                                <div className="cart cart-header">  {cartItems.length} Items In Your Cart </div>
                                 <a onClick={() => clearAll()} href="#">Clear all</a>
 
                             </div>
                             {
-                                cartItems.map((item, index) => (
-                                    <CartProdutDetail index={index + 1} removeFromCart={removeFromCart} cartItems={item} />
-
-                                ))
+                                 <div className="cart">
+                                 <Fade left cascade>
+                                   <ul className="cart-items">
+                                     {cartItems.map((item) => (
+                                       <li key={item._id}>
+                                         <div>
+                                           <img src={item.image} alt={item.title}></img>
+                                         </div>
+                                         <div>
+                                           <div>{item.title}</div>
+                                           <div className="right">
+                                             {item.price} x {item.count}{" "}
+                                             <button
+                                               className="button"
+                                               onClick={(e) => removeFromCart(e, item._id)}
+                                             >
+                                               Remove
+                                             </button>
+                                           </div>
+                                         </div>
+                                       </li>
+                                     ))}
+                                   </ul>
+                                 </Fade>
+                               </div>
                             }
 
                             <div className="cart-payment">
@@ -47,7 +67,7 @@ class Cart extends Component {
                                         }
                                     </div>
                                     <div className="proceed">
-                                        <button onClick={() => this.setState({ checkOut: !this.state.checkOut })} type="button">proceed</button>
+                                        <button className=' button primary' onClick={() => this.setState({ checkOut: !this.state.checkOut })} type="button">proceed</button>
                                     </div>
                                 </div>
                             </div>

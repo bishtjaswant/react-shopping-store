@@ -27,26 +27,50 @@ export default function CheckOut(props) {
 
     return <>
         <Fade direction='top-left'>
-            <div className='checkout-wrapper'>
-                <form method="post" onSubmit={orderSubmit}>
-                    <div className="group">
-                        <label htmlFor="">Name</label>
-                        <input required type="text" value={name} onChange={(e) => setName(e.target.value)} name="name" placeholder="name" id="" />
-                    </div>
+        <div className="cart">
+                    <form onSubmit={orderSubmit}>
+                      <ul className="form-container">
+                        <li>
 
-                    <div className="group">
-                        <label htmlFor="">Email</label>
-                        <input required type="email" value={email} onChange={(e) => setEmail(e.target.value)} name="email" placeholder="Email address" id="" />
-                    </div>
-                    <div className="group">
-                        <label htmlFor="">Address</label>
-                        <input required type='text' value={address} onChange={(e) => setAddress(e.target.value)} name="address" placeholder="Address" id="" />
-                    </div>
+                        <li>
+                          <label>Email</label>
+                          <input
+                            name="email"
+                            type="email"
+                            required
+                            value={email}
+                            onChange={(e)=>setEmail(e.target.value)}
+                          ></input>
+                        </li>  
 
-                    <button type='submit'  >checkout</button>
-                </form>
-            </div>
+                          <label>Name</label>
+                          <input
+                            name="name"
+                            type="text"
+                            required
+                            value={name}
+                            onChange={(e)=>setName(e.target.value)}
+                          ></input>
+                        </li>
 
+                        <li>
+                          <label>Address</label>
+                          <input
+                            name="address"
+                            type="text"
+                            required
+                            value={address}
+                            onChange={(e)=>setAddress(e.target.value)}
+                          ></input>
+                        </li>
+                        <li>
+                          <button className="button primary" type="submit">
+                            Checkout
+                          </button>
+                        </li>
+                      </ul>
+                    </form>
+                  </div>
         </Fade>
     </>
 };
