@@ -28,7 +28,6 @@ class Product extends React.Component {
 
   render() {
     const { product } = this.state;
-    console.log('rendr', this.props);
     return (
       <div>
         <Fade bottom cascade>
@@ -110,4 +109,4 @@ class Product extends React.Component {
 }
 
 
-export default connect((state) => ({ products: state.products.items }), { fetchProductAction })(Product);
+export default connect((state) => ({ products: state.products.filteredItems}), { fetchProductAction })(Product);

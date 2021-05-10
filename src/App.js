@@ -37,7 +37,7 @@ export default function App() {
 
     };
 
-
+/*
     const filterProductHandler = (e) => {
 
         if (e.target.value == '') {
@@ -56,6 +56,7 @@ export default function App() {
             })
         }
     }
+    */
 
 
     const removeFromCart = (e, _id) => {
@@ -88,7 +89,7 @@ export default function App() {
         } 
     }
 
-
+/* 
     const sortProductHandler = (e) => {
         const sort = e.target.value;
         setProducts({
@@ -101,7 +102,7 @@ export default function App() {
                         : a._id < a._id ? 1 : -1
                 )
         })
-    };
+    }; */
 
     return <>
         <div className="grid-container">
@@ -112,13 +113,13 @@ export default function App() {
                 <div className="content">
                     <div className="main">
                         <Filter
-                            count={products.products.length || 1}
-                            size={products.size}
-                            sort={products.sort}
-                            sortProductHandler={sortProductHandler}
-                            filterProductHandler={filterProductHandler}
+                            // count={products.products.length || 1}
+                            // size={products.size}
+                            // sort={products.sort}
+                            // sortProductHandler={sortProductHandler}
+                            // filterProductHandler={filterProductHandler}
                         />
-                        <Product products={products} addToCartHandler={addToCartHandler} />
+                        <Product addToCartHandler={addToCartHandler} />
                     </div>
                     <div className="sidebar">
                         <Cart clearAll={clearAll} createOrder={createOrder} removeFromCart={removeFromCart} cartItems={products.cartItems} />
